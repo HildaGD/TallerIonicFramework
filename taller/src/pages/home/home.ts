@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { ActualizarPage } from '../actualizar/actualizar';
+import { CrearPage } from '../crear/crear';
+import { EliminarPage } from '../eliminar/eliminar';
+import { MostrarPage } from '../mostrar/mostrar';
 
 @Component({
   selector: 'page-home',
@@ -11,4 +15,19 @@ export class HomePage {
 
   }
 
+  irCrearPage(){
+    this.navCtrl.push(CrearPage);
+  }
+
+  irMostrarPage(){
+    this.navCtrl.push(MostrarPage);
+  }
+
+  irActualizarPage(){
+    this.navCtrl.push(ActualizarPage);
+  }
+
+  irEliminarPage(){
+    this.navCtrl.push(EliminarPage);
+  }
 }
