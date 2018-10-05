@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {ConexionProvider} from '../../providers/conexion/conexion';
 
 /**
  * Generated class for the MostrarPage page.
@@ -15,11 +16,23 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class MostrarPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  users:any[];
+
+
+  constructor(public navCtrl: NavController,
+     public navParams: NavParams,
+    public service: ConexionProvider) {
+      this.mostrarDatos();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MostrarPage');
   }
 
+  mostrarDatos(){
+    this.service.mostrarDatos().subscribe(
+      data=> this.users = data,
+      err => console.log(err)
+    );
+  }
 }

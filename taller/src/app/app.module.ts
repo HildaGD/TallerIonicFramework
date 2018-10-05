@@ -10,7 +10,10 @@ import { ActualizarPage } from '../pages/actualizar/actualizar';
 import { CrearPage } from '../pages/crear/crear';
 import { EliminarPage } from '../pages/eliminar/eliminar';
 import{ MostrarPage } from '../pages/mostrar/mostrar';
+
 import { ConexionProvider } from '../providers/conexion/conexion';
+import { HttpModule } from '@angular/http'; //importar para la conexion BD 
+
 
 @NgModule({
   declarations: [
@@ -23,6 +26,7 @@ import { ConexionProvider } from '../providers/conexion/conexion';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],

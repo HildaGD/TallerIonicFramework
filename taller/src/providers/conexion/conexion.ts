@@ -13,7 +13,7 @@ import 'rxjs/add/operator/map'; // función de map <- necesaria de importar
 @Injectable()
 export class ConexionProvider {
   //Ruta para acortar la busqueda. Un puente para conexión de la aplicación IONIC con la base de datos en Mysql
-  api: string = 'http://localhost/ionic/prueba/';
+  api: string = 'http://localhost/ionic/taller/TallerIonicFramework/taller/conexion/';
   
   constructor(public http: Http) {
      
@@ -26,7 +26,7 @@ export class ConexionProvider {
 
   mostrarDatos(){
     // se debe de importar la función map, también para la función de json
-    return this.http.get(this.api + 'listar.php').map(res => res.json())
+    return this.http.get(this.api + 'mostrar.php').map(res => res.json())
   }
 
    //GUARDAR DATOS EN LA BASE DE DATOS
