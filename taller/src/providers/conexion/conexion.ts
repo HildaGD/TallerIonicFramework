@@ -32,7 +32,7 @@ export class ConexionProvider {
    //GUARDAR DATOS EN LA BASE DE DATOS
    guardarDatos(datos){
     let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
-    return this.http.post(this.api + "insertarUsuario.php", datos,
+    return this.http.post(this.api + "crear.php", datos,
       {
         headers: headers,
         method: "POST"
