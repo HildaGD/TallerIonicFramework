@@ -15,4 +15,33 @@
 
 <ion-content padding>
 
+    
+    <ion-list ion-item *ngFor="let user of users">
+        {{user.nameUser}} {{user.lastName}} 
+        <button ion-button (click)="sendData(user)">Actualizar datos</button>
+          
+    </ion-list>
+ 
+  <!--form  #f="ngForm" (ngSubmit)="sendData(f)">
+    <ion-list>
+        
+          <ion-item>
+            <ion-label fixed>Nombre</ion-label>
+            <ion-input type="name" placeholder="Name" name="nombre" ngModel #nombre = "ngModel"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label fixed>Apellido</ion-label>
+            <ion-input type="name" placeholder="Name" name="apellido" ngModel #apellido = "ngModel"></ion-input>
+          </ion-item>
+        
+          <ion-item>
+            <ion-label fixed>Password</ion-label>
+            <ion-input type="password"></ion-input>
+          </ion-item>
+        
+    </ion-list>
+
+    <button ion-button full color="dark">Ingresar</button>
+</form-->
 </ion-content>

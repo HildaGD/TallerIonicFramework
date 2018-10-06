@@ -46,7 +46,7 @@ export class ConexionProvider {
 
    actualizarDatos(datos){
     let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
-    return this.http.post(this.api + "actualizarUsuario.php", datos,
+    return this.http.post(this.api + "actualizar.php", datos,
       {
         headers: headers,
         method: "POST"
@@ -59,7 +59,7 @@ export class ConexionProvider {
 
   eliminarUsuario(dato){
     let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
-    return this.http.post(this.api + "eliminarUsuario.php", dato,
+    return this.http.post(this.api + "eliminar.php", dato,
       {
         headers: headers,
         method: "POST"
