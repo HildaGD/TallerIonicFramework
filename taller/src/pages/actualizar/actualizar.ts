@@ -66,7 +66,7 @@ export class ActualizarPage {
           
              
             let params:any={
-              id_user:req.id_user,
+              id_user:req.id_usuario,
               nombre:data.nombre,
               apellido:data.apellido
             }
