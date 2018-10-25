@@ -14,22 +14,22 @@
 
 
 <ion-content padding>
-  <form #f="ngForm" (ngSubmit)="login(f)">
+  <form #f="ngForm">
       <ion-list>
           <ion-item>
-            <ion-label>Username</ion-label>
-            <ion-input type="text"></ion-input>
+            <ion-label>Usuario</ion-label>
+            <ion-input type="text" placeholder="Usuario" name="usuario" ngModel #usuario = "ngModel"></ion-input>
           </ion-item>
         
           <ion-item>
             <ion-label>Password</ion-label>
-            <ion-input type="password"></ion-input>
+            <ion-input type="password" placeholder="Password" name="password"  ngModel #password = "ngModel"></ion-input>
           </ion-item>
         
         </ion-list>
         
         <div padding>
-          <button ion-button full>Sign In</button>
+          <button ion-button full (click)="login()">Sign In</button>
         </div>
   </form>
     

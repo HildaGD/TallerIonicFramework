@@ -14,9 +14,11 @@ import 'rxjs/add/operator/map'; // función de map <- necesaria de importar
 export class ConexionProvider {
   //Ruta para acortar la busqueda. Un puente para conexión de la aplicación IONIC con la base de datos en Mysql
   api: string = 'http://localhost/ionic/taller/TallerIonicFramework/taller/conexion/';
-  
+  loggedIn: boolean;
+  usuario: string;
   constructor(public http: Http) {
- 
+    this.usuario = "";
+    this.loggedIn = false;
   }
 
   //lECTURA DE DATOS
@@ -68,8 +70,34 @@ export class ConexionProvider {
       );
   }
 
-  login(){
-    
-  }
+  //Login
+  login(userInfo) {
+    let url = `${this.api +'login.php'}`;
+
+    let iJon = JSON.stringify(userInfo);
+
+    return this.http.post(url, iJon, {
+       headers: new Headers({
+          'Content-Type':'application/json'
+       })
+    })
+    .map(res =>res.text())
+    .map(res => {
+       if (res=="false"){
+          this.loggedIn = false;
+          console.log(res);
+       } else {
+          localStorage.setItem('token', res);
+          this.usuario= userInfo.usuario;
+          console.log(res);
+          this.loggedIn = true;
+       }
+       return this.loggedIn;
+    });
+ }
+
+ isLoggedIn() {
+  return this.loggedIn;
+}
 
 }

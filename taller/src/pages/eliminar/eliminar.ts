@@ -39,7 +39,7 @@ export class EliminarPage {
   eliminar(req){
     console.log(req);
     let confirm = this.alertCtrl.create({
-      title: 'Eliminar usuarrio?',
+      title: 'Eliminar usuario?',
       message: 'Desea eliminar el usuario selecionado?',
       buttons: [
         {
