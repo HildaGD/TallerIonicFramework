@@ -45,11 +45,11 @@ export class ActualizarPage {
         {
           name: 'nombre',
           placeholder: 'Nombre',
-          value: req.nameUser
+          value: req.nombre
         },{
           name: 'apellido',
           placeholder: 'Apellido',
-          value: req.lastName
+          value: req.apellido
         },
       ],
       buttons: [

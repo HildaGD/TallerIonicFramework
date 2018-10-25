@@ -16,7 +16,7 @@ export class ConexionProvider {
   api: string = 'http://localhost/ionic/taller/TallerIonicFramework/taller/conexion/';
   
   constructor(public http: Http) {
-     
+ 
   }
 
   //lECTURA DE DATOS

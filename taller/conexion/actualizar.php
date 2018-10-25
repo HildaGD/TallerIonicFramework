@@ -51,13 +51,9 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
     $db = new PDO($dns, $user, $pass);
    
     if($db){
-
-        //campos obligatorios nameUser, last name, nickname--> verificar que no hay un nombre igual, birthday, si es mayor de 18 si puede pagar con tarjeta de lo contrario no, contraseña, email
-        // campos NO abligatorios: direccion telefono genero 
-        //NOTAS: si el usuario quiere pedir algun pedido a domicilio es obligatorio ingresar el telefono y direccion.
-       // $sql = "INSERT INTO `tbl_user`(`id_user`, `nameUser`, `lastName`, `nickname`, `birthday`, `address`, `phone`, `gender`, `email`, `password`)
+         // $sql = "INSERT INTO `tbl_user`(`id_user`, `nameUser`, `lastName`, `nickname`, `birthday`, `address`, `phone`, `gender`, `email`, `password`)
           //VALUES (NULL,'".$name."','".$lastName."','".$nickname."','".$birthday."','".$address."','".$phone."','".$gender."','".$email."','".$password."')";
-        $sql = "UPDATE `tbl_user` SET `nombre`='".$nombre."',`apellido`='".$apellido."' WHERE `id_usuario`= '".$id_user."'";
+        $sql = "UPDATE `tbl_usuario` SET `nombre`='".$nombre."',`apellido`='".$apellido."' WHERE `id_usuario`= '".$id_user."'";
         $query = $db->prepare($sql);
         $query ->execute();
         
