@@ -9,7 +9,7 @@ global $dbname;
 $servername = "localhost:3306";
 $username = "root";
 $password = "";
-$dbname = "bfood";
+$dbname = "taller";
 
 
 $mysqli = @new mysqli($severname, $username, $password, $dbname);

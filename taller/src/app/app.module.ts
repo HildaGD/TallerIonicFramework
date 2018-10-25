@@ -10,6 +10,7 @@ import { ActualizarPage } from '../pages/actualizar/actualizar';
 import { CrearPage } from '../pages/crear/crear';
 import { EliminarPage } from '../pages/eliminar/eliminar';
 import{ MostrarPage } from '../pages/mostrar/mostrar';
+import { LoginPage} from '../pages/login/login';
 
 import { ConexionProvider } from '../providers/conexion/conexion';
 import { HttpModule } from '@angular/http'; //importar para la conexion BD 
@@ -22,7 +23,8 @@ import { HttpModule } from '@angular/http'; //importar para la conexion BD
     ActualizarPage,
     CrearPage,
     EliminarPage,
-    MostrarPage
+    MostrarPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -36,7 +38,8 @@ import { HttpModule } from '@angular/http'; //importar para la conexion BD
     ActualizarPage,
     CrearPage,
     EliminarPage,
-    MostrarPage
+    MostrarPage,
+    LoginPage
   ],
   providers: [
     StatusBar,

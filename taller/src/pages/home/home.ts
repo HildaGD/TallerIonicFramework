@@ -4,6 +4,7 @@ import { ActualizarPage } from '../actualizar/actualizar';
 import { CrearPage } from '../crear/crear';
 import { EliminarPage } from '../eliminar/eliminar';
 import { MostrarPage } from '../mostrar/mostrar';
+import {LoginPage} from '../login/login';
 
 @Component({
   selector: 'page-home',
@@ -29,5 +30,9 @@ export class HomePage {
 
   irEliminarPage(){
     this.navCtrl.push(EliminarPage);
+  }
+
+  irLoginPage(){
+    this.navCtrl.push(LoginPage);
   }
 }
