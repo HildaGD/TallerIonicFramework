@@ -4,7 +4,7 @@ header("Content-Type: application/x-www-form-urlencoded");
 header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
     
     //PARAMETROS DE LA BASE DE DATOS 
-    $dns = "mysql:host=localhost;dbname=bfood";
+    $dns = "mysql:host=localhost;dbname=taller";
     $user = "root";
     $pass = "";
     //RECUPERAR DATOS DEL FORMULARIO
@@ -12,15 +12,15 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
     $objData = json_decode($data);
     
     // ASIGNAR LOS VALORES A LA VARIABLE
-    $id_user = $objData->id_user;
+    $id_usuario = $objData->id_usuario;
   
 
     
     // lIMPIAR LOS DATOS
-    $id_user= stripslashes($id_user); 
+    $id_usuario= stripslashes($id_usuario); 
     
 
-    $id_user= trim($id_user); 
+    $id_usuario= trim($id_usuario); 
     
     
    
@@ -28,24 +28,24 @@ header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Ac
    
     if($db){
 
-        $sql = "DELETE FROM `tbl_usuario` WHERE `id_usuario`= '".$id_user."'";
+        $sql = "DELETE FROM `tbl_usuario` WHERE `id_usuario`= '".$id_usuario."'";
         $query = $db->prepare($sql);
         $query ->execute();
         
         if(!$query){
-                   $datos = array('mensaje' => "No se ha registrado! ");
+                   $datos = array('mensaje' => "No se ha eliminado! ");
                    echo json_encode($datos);
          }
         else{
-                   $datos = array('mensaje' => "Los datos se ingrearon correctamente");
+                   $datos = array('mensaje' => "Se ha eliminado correctamente");
                   echo json_encode($datos);
-         };
+         }
          echo json_encode($datos);
     }
    else{
           $datos = array('mensaje' => "Error, intente nuevamente");
           echo json_encode($datos);
-    };
+    }
 
     //include('cerrar_conexion.php');
     ?>

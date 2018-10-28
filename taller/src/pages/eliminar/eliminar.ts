@@ -40,7 +40,7 @@ export class EliminarPage {
     console.log(req);
     let confirm = this.alertCtrl.create({
       title: 'Eliminar usuario?',
-      message: 'Desea eliminar el usuario selecionado?',
+      message: 'Desea eliminar '+ req.nombre +' ' + req.apellido,
       buttons: [
         {
           text: 'Cancelar',
@@ -50,21 +50,20 @@ export class EliminarPage {
         },
         {
           text: 'Aceptar',
-          handler: ()=> {
+          handler: data => {
             console.log('Agree clicked');
             let params:any={
-              id_user:req.id_user
+              id_usuario:req.id_usuario
             }
-            console.log(params);
+            console.log(req);
 
             this.service.eliminarUsuario(params)
             .subscribe(
             datos => {
-              //this.showAlert(datos.mensaje);
+
               console.log(datos.mensaje)
-              //this.readData();
-              
-            },
+             
+             },
             err => console.log(err)
             );
           }

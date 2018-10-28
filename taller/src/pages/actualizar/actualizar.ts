@@ -70,13 +70,13 @@ export class ActualizarPage {
               nombre:data.nombre,
               apellido:data.apellido
             }
-            console.log(params);            
+           // console.log(JSON.parse(params));            
             this.service.actualizarDatos(params)
             .subscribe(
             datos => {
               //this.showAlert(datos.mensaje);
               console.log(datos.mensaje)
-              this.readData();
+              //this.readData();
               
             },
             err => console.log(err)

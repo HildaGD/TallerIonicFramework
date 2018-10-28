@@ -35,7 +35,39 @@ try{
     
 	$result = $query ->fetch();
 
-	if($usuario==""&&$password==""){
+	if(!$query){
+		$datos = array('mensaje' => "No se ha registrado! ");
+		echo json_encode($datos);
+		}
+		else{
+
+			if($usuario==""&& $password==""){
+				$datos = array('permiso' =>false, 'mensaje'=>'Usuario no existe');
+				echo json_encode($datos);
+			}else{
+				if ($result['usuario']!=$usuario && $result['password']!=$password){
+					$datos = array('permiso'=>false,'mensaje' => "Existe NO usuario" );
+					echo json_encode($datos);
+				}
+				if ($result['usuario']==$usuario && $result['password']==$password){
+					$datos = array('permiso'=>true,'mensaje' => "Existe usuario", "id_usuario"=>$result['id_usuario'],"nombre"=>$result['nombre'],"apellido"=>$result['apellido'],"usuario"=>$result['usuario'] );
+					echo json_encode($datos);
+				}else{
+					$datos = array('permiso' =>false, 'mensaje'=>'Usuario no existe');
+					echo json_encode($datos);
+				}
+			}
+
+			
+				//$datos = array('mensaje' => "Los datos se ingrearon correctamente");
+				
+		}
+	}
+		else{
+		$datos = array('mensaje' => "Error, intente nuevamente");
+		echo json_encode($datos);
+		}
+	/*if($usuario==""&&$password==""){
 		$resultado = false;
 	}
 
@@ -59,7 +91,7 @@ try{
 	    //$resultado = array("permiso"=>false, "error"=>"Usuario incorrecto");
 	}
 
-	echo json_encode($resultado);
+	echo json_encode($resultado);*/
 	/*if(!$query){
 				$datos = array('mensaje' => "No se ha registrado! ");
 				echo json_encode($datos);

@@ -28,7 +28,7 @@ export class ConexionProvider {
 
   mostrarDatos(){
     // se debe de importar la función map, también para la función de json
-    return this.http.get(this.api + 'mostrar.php').map(res => res.json())
+    return this.http.get(this.api + 'prueba.php').map(res => res.json())
   }
 
    //GUARDAR DATOS EN LA BASE DE DATOS
@@ -60,6 +60,7 @@ export class ConexionProvider {
 
 
   eliminarUsuario(dato){
+    console.log(dato);
     let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
     return this.http.post(this.api + "eliminar.php", dato,
       {
@@ -72,7 +73,17 @@ export class ConexionProvider {
 
   //Login
   login(userInfo) {
-    let url = `${this.api +'login.php'}`;
+    let iJon = JSON.stringify(userInfo);
+    let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    return this.http.post(this.api + "login.php", iJon,
+      {
+        headers: headers,
+        method: "POST"
+      }).map(
+      (res:Response)=>{return res.json()}
+      );
+
+    /*let url = `${this.api +'login.php'}`;
 
     let iJon = JSON.stringify(userInfo);
 
@@ -93,11 +104,16 @@ export class ConexionProvider {
           this.loggedIn = true;
        }
        return this.loggedIn;
-    });
+    });*/
  }
 
  isLoggedIn() {
   return this.loggedIn;
+}
+logout(): void {
+  localStorage.removeItem('token');
+  this.usuario = '';
+  this.loggedIn = false;
 }
 
 }
